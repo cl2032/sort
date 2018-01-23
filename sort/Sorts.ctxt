@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Sorts
+comment1.params=
+comment1.target=Sorts()
+comment1.text=\r\n\ \ Description\ of\ Constructor\r\n\r\n\ @param\ \ list\ \ Description\ of\ Parameter\r\n
+comment2.params=list
+comment2.target=void\ bubbleSort(java.util.ArrayList)
+comment2.text=\r\n\ \ Description\ of\ the\ Method\r\n\r\n\ @param\ \ list\ \ reference\ to\ an\ array\ of\ integers\ to\ be\ sorted\r\n
+comment3.params=arr
+comment3.target=void\ printArray(int[])
+comment3.text=Prints\ the\ array
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+comment5.params=list
+comment5.target=java.util.ArrayList\ selectionSort(java.util.ArrayList)
+comment5.text=\r\n\ \ Description\ of\ the\ Method\r\n\r\n\ @param\ \ list\ \ reference\ to\ an\ array\ of\ integers\ to\ be\ sorted\r\n
+comment6.params=list
+comment6.target=void\ insertionSort(java.util.ArrayList)
+comment6.text=\r\n\ \ Description\ of\ the\ Method\r\n\r\n\ @param\ \ list\ \ reference\ to\ an\ array\ of\ integers\ to\ be\ sorted\r\n
+comment7.params=
+comment7.target=long\ getStepCount()
+comment7.text=\r\n\ \ \ \ public\ void\ combine(\ int[]\ arr1,\ int\ leftIndex,int\ middle,\ int\ rightIndex\ )\ \r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ int\ left1\ \=\ leftIndex\ \ ;\r\n\ \ \ \ \ \ \ \ int\ right1\ \=\ middle+1\ ;\ \r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ while(\ left1\ <\=\ middle\ \ &&\ right1\ <\=\ rightIndex\ )\ \r\n\ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ if(\ arr1[left]\ )\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ public\ void\ merge(\ int[]\ arr1,\ int\ leftIndex,\ int\ rightIndex\ )\ \r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ if(\ leftIndex\ \=\=\ rightIndex\ )\ \r\n\ \ \ \ \ \ \ \ \ return\ ;\r\n\ \ \ \ \ \ \ \ if(\ leftIndex\ \=\=\ rightIndex\ +\ 1\ )\ \r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ if(\ arr1[leftIndex]\ >\ arr1[rightIndex]\ )\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int\ temp\ \=\ arr1[rightIndex]\ ;\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr1[rightIndex]\ \=\ arr1[leftIndex]\ ;\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr1[leftIndex]\ \=\ temp\ ;\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ int\ middle\ \=\ (leftIndex\ +\ rightIndex)\ /2\ ;\ \r\n\ \ \ \ \ \ \ \ merge(\ arr1\ ,\ leftIndex\ ,\ middle\ )\ ;\r\n\ \ \ \ \ \ \ \ merge(\ arr1\ ,\ middle+1\ ,\ rightIndex\ )\ ;\r\n\ \ \ \ \ \ \ \ combine(\ arr1,\ leftIndex,\ middle,\ rightIndex\ )\ ;\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ }\r\n\ \ \ \ public\ void\ mergeSort(ArrayList\ <Integer>\ list)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ int[]\ arr1\ \=\ new\ int[list.size()];\r\n\r\n\ \ \ \ \ \ \ \ for(int\ i1\ \=\ 0;\ i1\ <\ list.size();\ i1++)\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (list.get(i1)\ \!\=\ null)\r\n\ \ \ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr1[i1]\ \=\ list.get(i1);\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ merge(\ arr1\ ,0,\ arr1.length-1)\ ;\ \r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ /**\r\n\ \ Accessor\ method\ to\ return\ the\ current\ value\ of\ steps\r\n\r\n
+comment8.params=stepCount
+comment8.target=void\ setStepCount(long)
+comment8.text=\r\n\ \ Modifier\ method\ to\ set\ or\ reset\ the\ step\ count.\ Usually\ called\r\n\ \ prior\ to\ invocation\ of\ a\ sort\ method.\r\n\r\n\ @param\ \ stepCount\ \ \ value\ assigned\ to\ steps\r\n
+numComments=9
