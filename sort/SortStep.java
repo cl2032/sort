@@ -22,12 +22,8 @@ public class SortStep{
 
     public static void main(String args[])
     {
-
-        SortStep obj = new SortStep();
+SortStep obj = new SortStep();
         obj.sortMenu();
-
-        
-        
     }
 
     /**
@@ -65,7 +61,7 @@ public class SortStep{
                     break;
                     case '2':
                     resetArray();
-                    myArray  =  mySorts.selectionSort(myArray);
+                    mySorts.selectionSort(myArray);
                     break;
                     case '3':
                     resetArray();
@@ -74,7 +70,7 @@ public class SortStep{
                     case '4':
                     resetArray();
                     int last = myArray.size() - 1;
-                    //mySorts.mergeSort(myArray, 0, last);
+                    mySorts.mergeSort(myArray, 0, last);
                     break;
                     case '5':
                     listType = "Integer";

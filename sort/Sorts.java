@@ -40,14 +40,15 @@ public class Sorts{
 
     }
 
-    /* Prints the array */
+    /* Prints the array 
     void printArray(int arr[])
     {
-        int n = arr.length;
-        for (int i=0; i<n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
+    int n = arr.length;
+    for (int i=0; i<n; ++i)
+    System.out.print(arr[i] + " ");
+    System.out.println();
     }
+    /*/
     // Driver method to test above
     public static void main(String args[])
     {
@@ -75,7 +76,7 @@ public class Sorts{
         System.out.println();
         System.out.println("Bubble Sort");
         System.out.println();
-        ob.printArray(arr1);
+        // ob.printArray(arr1);
     }
 
     /**
@@ -83,32 +84,26 @@ public class Sorts{
      *
      * @param  list  reference to an array of integers to be sorted
      */
-    public ArrayList<Integer> selectionSort(ArrayList <Integer> list){
+    public void selectionSort(ArrayList <Integer> list){
         //replace these lines with your code
-
-        ArrayList<Integer> sortedList  = new ArrayList<Integer>();
-        int min = list.get(0) ; int index = 0 ; 
-        while( list.size() > 0 ) 
-        {
-            min = list.get(0); index = 0;
-            for(int i1 = 1 ; i1 < list.size() ; i1++ ) 
-            {
-                if( list.get(i1) < min)
-                {
-                    min = list.get(i1);
-                    index = i1;
-
-                }
-                steps++ ; 
-            }
-            list.remove(index);
-            sortedList.add(min);
-        }
         System.out.println();
         System.out.println("Selection Sort");
         System.out.println();
-        return sortedList;
 
+        int min, temp;
+
+        for (int outer = 0; outer < list.size() - 1; outer++){
+            min = outer;
+            for (int inner = outer + 1; inner < list.size(); inner++){
+                if (list.get(inner) < list.get(min)) {
+                    min = inner; // a new smallest item is found
+                }
+            }
+            //swap list[outer] & list[min]
+            temp = list.get(outer);
+            list.set(outer, list.get(min));
+            list.set(min, temp);
+        }
     }
 
     /**
@@ -151,55 +146,108 @@ public class Sorts{
     /*
     public void combine( int[] arr1, int leftIndex,int middle, int rightIndex ) 
     {
-        int left1 = leftIndex  ;
-        int right1 = middle+1 ; 
-        
-        while( left1 <= middle  && right1 <= rightIndex ) 
-          {
-              if( arr1[left] )
-              {
-                }
-          }
+    int left1 = leftIndex  ;
+    int right1 = middle+1 ; 
+
+    while( left1 <= middle  && right1 <= rightIndex ) 
+    {
+    if( arr1[left] )
+    {
+    }
+    }
     }
     public void merge( int[] arr1, int leftIndex, int rightIndex ) 
     {
-       if( leftIndex == rightIndex ) 
-         return ;
-        if( leftIndex == rightIndex + 1 ) 
-        {
-            if( arr1[leftIndex] > arr1[rightIndex] ) 
-             {
-                int temp = arr1[rightIndex] ; 
-                arr1[rightIndex] = arr1[leftIndex] ; 
-                arr1[leftIndex] = temp ; 
-              }
-        }
-        
-        int middle = (leftIndex + rightIndex) /2 ; 
-        merge( arr1 , leftIndex , middle ) ;
-        merge( arr1 , middle+1 , rightIndex ) ;
-        combine( arr1, leftIndex, middle, rightIndex ) ;
-        
+    if( leftIndex == rightIndex ) 
+    return ;
+    if( leftIndex == rightIndex + 1 ) 
+    {
+    if( arr1[leftIndex] > arr1[rightIndex] ) 
+    {
+    int temp = arr1[rightIndex] ; 
+    arr1[rightIndex] = arr1[leftIndex] ; 
+    arr1[leftIndex] = temp ; 
+    }
+    }
+
+    int middle = (leftIndex + rightIndex) /2 ; 
+    merge( arr1 , leftIndex , middle ) ;
+    merge( arr1 , middle+1 , rightIndex ) ;
+    combine( arr1, leftIndex, middle, rightIndex ) ;
+
     }
     public void mergeSort(ArrayList <Integer> list)
     {
-        int[] arr1 = new int[list.size()];
+    int[] arr1 = new int[list.size()];
 
-        for(int i1 = 0; i1 < list.size(); i1++)
-        {
-            if (list.get(i1) != null)
-            {
-                arr1[i1] = list.get(i1);
-            }
-        }
-        
-        merge( arr1 ,0, arr1.length-1) ; 
+    for(int i1 = 0; i1 < list.size(); i1++)
+    {
+    if (list.get(i1) != null)
+    {
+    arr1[i1] = list.get(i1);
     }
-    
+    }
+
+    merge( arr1 ,0, arr1.length-1) ; 
+    }
+
     /**
      *  Accessor method to return the current value of steps
      *
      */
+
+    public void mergeSort(ArrayList <Integer> list, int low, int high) {
+        // check if low is smaller than high, if not then the array is sorted
+        if( low < high) {
+            // Get the index of the element which is in the middle
+            int middle = low + (high - low) / 2;
+            //System.out.print ("low " + low + "middle " + middle + " high " + high);
+            // Sort the left side of the array
+            mergeSort(list, low, middle);
+            // Sort the right side of the array
+            mergeSort(list, middle + 1, high);
+            // Combine them both
+            merge(list, low, middle, high);
+        }
+    }
+
+    private void merge(ArrayList <Integer> list, int low, int middle, int high) {
+        ArrayList <Integer> helper = new ArrayList <Integer> ();
+
+        int i = low;
+        int j = middle + 1;
+        // Copy the smallest values from either the left or the right side
+        // to the helper
+        while (i <= middle || j <= high) {
+            if (i > middle) {
+                helper.add(list.get(j));
+                j++;
+            }
+            else if (j > high){
+                helper.add(list.get(i));
+                i++;
+            }
+            else if (list.get(i) <= list.get(j)) {
+                helper.add(list.get(i));
+                i++;
+            } else {
+                helper.add(list.get(j));
+                j++;
+            }
+        }
+        int m = low;
+        // Copy the merged part back into the original list from low to high index
+        for(int l = 0; l < helper.size(); l++) {
+            list.set(m, helper.get(l));
+            m++;
+        }
+    }
+
+    /*
+     *  Accessor method to return the current value of steps
+     *
+     */
+
     public long getStepCount(){
         return steps;
     }
