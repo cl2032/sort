@@ -20,21 +20,24 @@ public class Sorts{
      */
     public void bubbleSort(ArrayList <Integer> list){
 
+        System.out.println();
+        System.out.println("Bubble Sort");
+        System.out.println();
+
+        int n1 = list.size();
+        for (int i1 = 0; i1 < n1-1; i1++)
         {
-            int n1 = list.size();
-            for (int i1 = 0; i1 < n1-1; i1++)
+            for (int j1 = 0; j1 < n1-i1-1; j1++)
             {
-                for (int j1 = 0; j1 < n1-i1-1; j1++)
+                if (list.get(j1) > list.get(j1+1))
                 {
-                    if (list.get(j1) > list.get(j1+1))
-                    {
-                        // swap temp and arr[i]
-                        int temp = list.get(j1);
-                        list.set(j1,  list.get(j1+1)   );
-                        list.set(j1+1,  temp);
-                    }
-                    steps++;
+                    // swap temp and arr[i]
+                    int temp = list.get(j1);
+                    list.set(j1,  list.get(j1+1)   );
+                    list.set(j1+1,  temp);
+                    steps = steps+4;
                 }
+                steps = steps+3;
             }
         }
 
@@ -48,37 +51,37 @@ public class Sorts{
     System.out.print(arr[i] + " ");
     System.out.println();
     }
-    /*/
+    /
     // Driver method to test above
     public static void main(String args[])
     {
-        Sorts ob = new Sorts();
-        int arr[] = {64, 34, 25, 12, 22, 11, 90};
-        ArrayList<Integer> list  = new ArrayList<Integer>();
-        for( int i1=0 ; i1<arr.length ; i1++ ) 
-        {
-            list.add( arr[i1] ) ;     
-        }
-
-        ob.bubbleSort(list);
-        System.out.println("Sorted array");
-
-        int[] arr1 = new int[list.size()];
-
-        for(int i1 = 0; i1 < list.size(); i1++)
-        {
-            if (list.get(i1) != null)
-            {
-                arr1[i1] = list.get(i1);
-            }
-        }
-
-        System.out.println();
-        System.out.println("Bubble Sort");
-        System.out.println();
-        // ob.printArray(arr1);
+    Sorts ob = new Sorts();
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    ArrayList<Integer> list  = new ArrayList<Integer>();
+    for( int i1=0 ; i1<arr.length ; i1++ ) 
+    {
+    list.add( arr[i1] ) ;     
     }
 
+    ob.bubbleSort(list);
+    System.out.println("Sorted array");
+
+    int[] arr1 = new int[list.size()];
+
+    for(int i1 = 0; i1 < list.size(); i1++)
+    {
+    if (list.get(i1) != null)
+    {
+    arr1[i1] = list.get(i1);
+    }
+    }
+
+    System.out.println();
+    System.out.println("Bubble Sort");
+    System.out.println();
+    // ob.printArray(arr1);
+    }
+     */
     /**
      *  Description of the Method
      *
@@ -91,18 +94,20 @@ public class Sorts{
         System.out.println();
 
         int min, temp;
-
         for (int outer = 0; outer < list.size() - 1; outer++){
             min = outer;
             for (int inner = outer + 1; inner < list.size(); inner++){
                 if (list.get(inner) < list.get(min)) {
                     min = inner; // a new smallest item is found
+                    steps = steps+3;
                 }
+                steps++;
             }
             //swap list[outer] & list[min]
             temp = list.get(outer);
             list.set(outer, list.get(min));
             list.set(min, temp);
+            steps = steps+4;
         }
     }
 
@@ -119,16 +124,13 @@ public class Sorts{
         for (int i1=1; i1<n1; ++i1)
         {
             int key = list.get(i1);
+            steps = steps+1;
             int j1 = i1-1;
-
-            /* Move elements of arr[0..i-1], that are
-            greater than key, to one position ahead
-            of their current position */
-            steps++ ; 
             int j2=0 ;
             while (j1>=0 && list.get(j1) > key)
             {
                 list.set( j1+1, list.get(j1)  );
+                steps = steps+2;
                 j1 = j1-1;
                 if( j2 == 0 ) 
                     j2++;
@@ -136,6 +138,7 @@ public class Sorts{
                     steps++;
             }   
             list.set(j1+1,key);
+            steps++;
         }
 
         System.out.println();
@@ -222,17 +225,24 @@ public class Sorts{
             if (i > middle) {
                 helper.add(list.get(j));
                 j++;
+                steps++;
             }
             else if (j > high){
                 helper.add(list.get(i));
                 i++;
+                steps++;
             }
+            else if (1 == 1)
+                steps = steps+3;
             else if (list.get(i) <= list.get(j)) {
                 helper.add(list.get(i));
                 i++;
-            } else {
+                steps++;
+            }
+            else {
                 helper.add(list.get(j));
                 j++;
+                steps++;
             }
         }
         int m = low;
@@ -240,6 +250,7 @@ public class Sorts{
         for(int l = 0; l < helper.size(); l++) {
             list.set(m, helper.get(l));
             m++;
+            steps = steps+2;
         }
     }
 
