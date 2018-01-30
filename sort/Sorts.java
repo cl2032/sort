@@ -272,4 +272,11 @@ public class Sorts{
     public void setStepCount(long stepCount){
         steps = stepCount;
     }
+
+    public boolean ArrayList( ArrayList<Integer> List, int num)
+    {
+        
+        
+        
+    }
 }
