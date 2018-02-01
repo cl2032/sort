@@ -273,10 +273,56 @@ public class Sorts{
         steps = stepCount;
     }
 
-    public boolean ArrayList( ArrayList<Integer> List, int num)
+    /*public boolean sequentialSearch( ArrayList<Integer> list, int num)
     {
+    for( List
+
+    }
+     */
+
+    public boolean binarySearch ( ArrayList<Integer> list, int num)
+    {
+        int split = list.size() /2;
+        int max = list.size();
+        int min = 0;
+        insertionSort(list);
         
-        
-        
+        while( max != min)
+        {
+            if (list.get(split) == num)
+            {
+                return true;
+            }
+            else
+            {
+                if(list.get(split) < num)
+                {
+                    max = split-1;
+                }
+                else
+                {
+                    min = split+1;
+
+                }
+            }
+
+        }
+        return false;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

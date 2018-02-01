@@ -45,6 +45,7 @@ SortStep obj = new SortStep();
             System.out.println("(3) Insertion sort");
             System.out.println("(4) Recursive mergesort");
             System.out.println("(5) Fill with Integers");
+            System.out.println("(6) Binary Search");
             System.out.println("(Q) Quit");
             System.out.println();
             System.out.print("Choice ---> ");
@@ -74,6 +75,8 @@ SortStep obj = new SortStep();
                     break;
                     case '5':
                     listType = "Integer";
+                    case '6':
+                    mySorts.binarySearch(myArray, 50);
                     break;              
                 }
 
