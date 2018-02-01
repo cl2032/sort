@@ -280,7 +280,7 @@ public class Sorts{
     }
      */
 
-    public boolean binarySearch ( ArrayList<Integer> list, int num)
+    public boolean binarySearch ( ArrayList <Integer> list, int num)
     {
         int split = list.size() /2;
         int max = list.size();
@@ -310,19 +310,3 @@ public class Sorts{
         return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

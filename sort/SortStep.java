@@ -22,7 +22,7 @@ public class SortStep{
 
     public static void main(String args[])
     {
-SortStep obj = new SortStep();
+        SortStep obj = new SortStep();
         obj.sortMenu();
     }
 
@@ -76,6 +76,7 @@ SortStep obj = new SortStep();
                     case '5':
                     listType = "Integer";
                     case '6':
+                    resetArray();
                     mySorts.binarySearch(myArray, 50);
                     break;              
                 }
