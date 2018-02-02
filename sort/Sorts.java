@@ -273,6 +273,30 @@ public class Sorts{
         steps = stepCount;
     }
 
+    
+      public int binarySearch(  ArrayList <Integer> A, int num, int imin, int imax ) 
+    // test if array is empty 
+    {
+        if (imax < imin) 
+            return -1; 
+        else 
+        {
+            // calculate midpoint to cut set in half 
+            int imid = midpoint(imin, imax); 
+            if (A.get(imid) == num) 
+                return -2;
+            // three-way comparison 
+            if (A.get(imid) > num) 
+            // key is in Lower subset 
+                return binarySearch(A, num, imin, imid-1 );
+            else if (A.get(imid) < num) 
+                return binarySearch(A, num, imid + 1, imax);
+            else 
+                return -1;
+        }
+    }
+    
+    
     /*public boolean sequentialSearch( ArrayList<Integer> list, int num)
     {
     for( List
@@ -287,46 +311,19 @@ public class Sorts{
         int min = 0;
         insertionSort(list);
 
-        while( max != min)
-        {
-           answer = binarySearch( list , num ,  min ,  max );
-           if (answer == -1)
-               return true;
-           else 
-               return false;
-                }
-            }
-
-        }
-        return false;
+            answer = binarySearch( list , num ,  min ,  max );
+            if (answer == -1)
+                return true;
+            else 
+                return false;
+        
     }
 
-    
+
     public int midpoint(int imin, int imax)
     {
         return (imin + imax) /2 ; 
     }
-    
-    
-    public int binarySearch( int A[], int num, int imin, int imax ) 
-    // test if array is empty 
-    {
-        if (imax < imin) 
-            return -1; 
-        else 
-        {
-            // calculate midpoint to cut set in half 
-            int imid = midpoint(imin, imax); 
-            if (A[imid] == num) 
-                return -2;
-            // three-way comparison 
-            if (A[imid] > num) 
-            // key is in Lower subset 
-                return binarySearch(A, num, imin, imid-1 );
-            else if (A[imid] < key) 
-                return binarySearch(A, num, imid + 1, imax);
-            else 
-                return -1;
-        }
-    }
+
+  
 }
