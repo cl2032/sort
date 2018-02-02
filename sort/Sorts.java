@@ -282,27 +282,18 @@ public class Sorts{
 
     public boolean binarySearch ( ArrayList <Integer> list, int num)
     {
-        int split = list.size() /2;
+        int answer = 0;
         int max = list.size();
         int min = 0;
         insertionSort(list);
 
         while( max != min)
         {
-            if (list.get(split) == num)
-            {
-                return true;
-            }
-            else
-            {
-                if(list.get(split) < num)
-                {
-                    max = split-1;
-                }
-                else
-                {
-                    min = split+1;
-
+           answer = binarySearch( list , num ,  min ,  max );
+           if (answer == -1)
+               return true;
+           else 
+               return false;
                 }
             }
 
@@ -317,24 +308,25 @@ public class Sorts{
     }
     
     
-    public int binarySearch( int A[], int key, int imin, int imax ) 
+    public int binarySearch( int A[], int num, int imin, int imax ) 
     // test if array is empty 
     {
         if (imax < imin) 
-            return "KEY_NOT_FOUND"; 
+            return -1; 
         else 
         {
             // calculate midpoint to cut set in half 
             int imid = midpoint(imin, imax); 
-
+            if (A[imid] == num) 
+                return -2;
             // three-way comparison 
-            if (A[imid] > key) 
+            if (A[imid] > num) 
             // key is in Lower subset 
-                return binarySearch(A, key, imin, imid-1 );
+                return binarySearch(A, num, imin, imid-1 );
             else if (A[imid] < key) 
-                return binarySearch(A, key, imid + 1, imax);
+                return binarySearch(A, num, imid + 1, imax);
             else 
-                return imid;
+                return -1;
         }
     }
 }
