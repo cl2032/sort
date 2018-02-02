@@ -286,7 +286,7 @@ public class Sorts{
         int max = list.size();
         int min = 0;
         insertionSort(list);
-        
+
         while( max != min)
         {
             if (list.get(split) == num)
@@ -308,5 +308,33 @@ public class Sorts{
 
         }
         return false;
+    }
+
+    
+    public int midpoint(int imin, int imax)
+    {
+        return (imin + imax) /2 ; 
+    }
+    
+    
+    public int binarySearch( int A[], int key, int imin, int imax ) 
+    // test if array is empty 
+    {
+        if (imax < imin) 
+            return "KEY_NOT_FOUND"; 
+        else 
+        {
+            // calculate midpoint to cut set in half 
+            int imid = midpoint(imin, imax); 
+
+            // three-way comparison 
+            if (A[imid] > key) 
+            // key is in Lower subset 
+                return binarySearch(A, key, imin, imid-1 );
+            else if (A[imid] < key) 
+                return binarySearch(A, key, imid + 1, imax);
+            else 
+                return imid;
+        }
     }
 }

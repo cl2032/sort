@@ -75,6 +75,7 @@ public class SortStep{
                     break;
                     case '5':
                     listType = "Integer";
+                    break;
                     case '6':
                     resetArray();
                     mySorts.binarySearch(myArray, 50);
